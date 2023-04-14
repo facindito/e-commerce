@@ -2,6 +2,7 @@ import Sidebar from './components/Sidebar'
 import { products } from './mocks/products.json'
 import useFilters from './hooks/useFilters'
 import Products from './components/Products'
+import CartProvider from './context/cart'
 
 export default function App () {
   const { filterProducts } = useFilters()
@@ -11,7 +12,9 @@ export default function App () {
 
     <div className='max-w-6xl mx-auto flex'>
       <Sidebar />
-      <Products products={filteredProducts} />
+      <CartProvider>
+        <Products products={filteredProducts} />
+      </CartProvider>
     </div>
   )
 }

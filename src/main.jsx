@@ -5,9 +5,9 @@ import './index.css'
 import FilterProvider from './context/filters'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <FilterProvider>
-      <App />
-    </FilterProvider>
-  </React.StrictMode>
+
+  <FilterProvider>
+    <App />
+  </FilterProvider>
+
 )

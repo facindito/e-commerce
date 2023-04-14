@@ -1,23 +1,12 @@
 import { useState } from 'react'
 import { SideBarToggleIcon } from './icons'
-import useFilters from '../hooks/useFilters'
 
-export default function Dropdown ({ categories, title, type }) {
+export default function Dropdown ({ categories, title, type, filters, handleChange }) {
   const [dropdown, setDropdown] = useState(true)
-  const { filters, setFilters } = useFilters()
-
-  const handleChange = (e) => {
-    e.target.checked
-      ? setFilters((prevState) => [...prevState, e.target.value])
-      : setFilters((prevState) => {
-        return prevState.filter(value => value !== e.target.value)
-      })
-  }
 
   const handleClick = () => {
     setDropdown((prevState) => !prevState)
   }
-
   return (
     <>
       <button
