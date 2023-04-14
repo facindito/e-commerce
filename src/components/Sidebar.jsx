@@ -8,9 +8,15 @@ export default function Sidebar () {
 
   const handleChange = useCallback((e) => {
     e.target.checked
-      ? setFilters((prevState) => [...prevState, e.target.value])
+      ? setFilters((prevState) => {
+        const newState = [...prevState, e.target.value]
+        window.localStorage.setItem('filters', JSON.stringify(newState))
+        return newState
+      })
       : setFilters((prevState) => {
-        return prevState.filter(value => value !== e.target.value)
+        const newState = prevState.filter(value => value !== e.target.value)
+        window.localStorage.setItem('filters', JSON.stringify(newState))
+        return newState
       })
   }, [])
 
