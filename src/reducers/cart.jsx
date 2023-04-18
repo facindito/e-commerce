@@ -47,6 +47,13 @@ const UPDATE_STATE_BY_ACTION = {
     const product = action.payload
     const { id, price } = product
 
+    if (state[id].quantity === 1) {
+      const newState = { ...state, total: state.total - price }
+      delete newState[id]
+      updateLocalStore(newState)
+      return newState
+    }
+
     const newState = {
       ...state,
       [id]: {
