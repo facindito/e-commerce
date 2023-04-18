@@ -9,7 +9,6 @@ export default function Products ({ products }) {
         {
           products.map(product => {
             const { id, title, price, thumbnail } = product
-            const productInCart = cart.find(item => item.id === id)
 
             return (
               <li key={id} className='flex flex-col justify-between gap-4 max-w-xs  border border-slate-300 rounded-md p-2'>
@@ -22,7 +21,7 @@ export default function Products ({ products }) {
                 </div>
 
                 {
-                  productInCart
+                  cart[id]?.quantity >= 1
                     ? (
                       <div className='w-full flex justify-between items-center'>
                         <button
@@ -31,7 +30,7 @@ export default function Products ({ products }) {
                         >
                           -
                         </button>
-                        <strong>{productInCart.quantity}</strong>
+                        <strong>{cart[id]?.quantity}</strong>
                         <button
                           className='rounded-md bg-[#f5f7f9] border border-slate-300 hover:bg-slate-300 px-4 py-2'
                           onClick={() => addToCart(product)}
