@@ -64,6 +64,11 @@ const UPDATE_STATE_BY_ACTION = {
     }
     updateLocalStore(newState)
     return newState
+  },
+  [CART_ACTIONS_TYPES.CLEAR_CART]: () => {
+    const newState = false
+    window.localStorage.clear('cart')
+    return newState
   }
 }
 
@@ -85,9 +90,13 @@ export function useCartReducer () {
     payload: product
   })
 
+  const clearCart = () => dispatch({
+    type: CART_ACTIONS_TYPES.CLEAR_CART
+  })
   return {
     cart: state,
     addToCart,
-    removeToCart
+    removeToCart,
+    clearCart
   }
 }

@@ -3,7 +3,7 @@ import useCart from '../hooks/useCart'
 export default function CartItems () {
   const { cart, removeToCart, addToCart } = useCart()
 
-  if (cart.total === 0) return null
+  if (!cart.total) return null
   return (
     <main>
       <table className='w-full'>
