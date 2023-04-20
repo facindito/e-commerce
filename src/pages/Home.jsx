@@ -8,7 +8,7 @@ export default function Home () {
   const filteredProducts = filterProducts({ products })
 
   return (
-    <main className='flex'>
+    <main className='max-w-6xl mx-auto flex flex-col md:flex-row'>
       <Sidebar />
       <Products products={filteredProducts} />
     </main>

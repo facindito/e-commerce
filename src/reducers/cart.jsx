@@ -1,7 +1,7 @@
 import { useReducer } from 'react'
 
-const cartInitialState = JSON.parse(window.localStorage.getItem('cart')) || {}
-
+const cartInitialState = JSON.parse(window.localStorage.getItem('cart')) || false
+const clearLocalStorage = () => window.localStorage.clear('cart')
 const CART_ACTIONS_TYPES = {
   ADD_TO_CART: 'ADD_TO_CART',
   REMOVE_FROM_CART: 'REMOVE_FROM_CART',
@@ -37,6 +37,7 @@ const UPDATE_STATE_BY_ACTION = {
         ...product,
         quantity: 1
       },
+      count: state.count ? state.count + 1 : 1,
       total: state.total ? state.total + price : price
     }
     updateLocalStore(newState)
@@ -48,9 +49,16 @@ const UPDATE_STATE_BY_ACTION = {
     const { id, price } = product
 
     if (state[id].quantity === 1) {
-      const newState = { ...state, total: state.total - price }
+      const newState = {
+        ...state,
+        count: state.count - 1,
+        total: state.total - price
+      }
       delete newState[id]
-      updateLocalStore(newState)
+      if (newState.total === 0) {
+        clearLocalStorage()
+        return false
+      }
       return newState
     }
 
@@ -60,15 +68,15 @@ const UPDATE_STATE_BY_ACTION = {
         ...product,
         quantity: state[id].quantity - 1
       },
+
       total: state.total - price
     }
     updateLocalStore(newState)
     return newState
   },
   [CART_ACTIONS_TYPES.CLEAR_CART]: () => {
-    const newState = false
-    window.localStorage.clear('cart')
-    return newState
+    clearLocalStorage()
+    return false
   }
 }
 
