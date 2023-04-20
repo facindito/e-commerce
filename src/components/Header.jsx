@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom'
-import { CartIcon } from './icons'
+import { CartIcon } from './Icons'
 
 export default function Header () {
   return (

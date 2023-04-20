@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { SideBarToggleIcon } from './icons'
+import { SideBarToggleIcon } from './Icons'
 
 export default function Dropdown ({ categories, title, type, filters, handleChange }) {
   const [dropdown, setDropdown] = useState(true)
