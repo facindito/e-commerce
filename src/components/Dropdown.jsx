@@ -10,7 +10,7 @@ export default function Dropdown ({ categories, title, type, filters, handleChan
   return (
     <>
       <button
-        className='flex justify-between items-center w-full hover:bg-[#f5f7f9] p-2 rounded-md'
+        className='flex justify-between items-center w-full border border-slate-300 hover:bg-black hover:text-white p-2 rounded-md'
         onClick={handleClick}
       >
         <span>{title}</span>

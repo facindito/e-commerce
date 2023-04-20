@@ -21,7 +21,7 @@ export default function Sidebar () {
   }, [])
 
   return (
-    <aside className='w-56 h-full overflow-hidden p-3 border border-slate-300 rounded-md m-4 hidden md:block md:sticky top-4'>
+    <aside className='w-56 h-full overflow-hidden p-3 border border-slate-300 rounded-md m-4 hidden md:flex md:flex-col md:gap-1 md:sticky top-4'>
       <Dropdown
         title='Woman'
         categories={CATEGORIES.WOMEN_CATEGORIES}

@@ -11,7 +11,7 @@ export default function Cart () {
         <h2 className='font-bold text-2xl'>YOUR CART IS EMPTY...</h2>
         <Link
           to='/'
-          className='px-6 py-2 border border-black rounded-md hover:bg-black hover:text-white'
+          className='px-6 py-2 border border-slate-300 rounded-md hover:bg-black hover:text-white hover:border-black'
         >Continue shopping
         </Link>
       </section>
@@ -23,7 +23,7 @@ export default function Cart () {
         <header className='flex justify-between items-baseline p-4'>
           <h2 className='text-4xl font-bold'>Cart</h2>
           <button
-            className='font-bold hover:bg-black hover:text-white border border-black rounded-md px-4 py-2'
+            className='font-bold hover:bg-black hover:text-white hover:border-black border border-slate-300 rounded-md px-4 py-2'
             onClick={clearCart}
           >
             Remove
@@ -32,7 +32,7 @@ export default function Cart () {
         <CartItems />
       </section>
       <section className='p-4'>
-        <div className='w-full md:w-80 max-w-sm h-fit border border-black p-4 rounded-md flex flex-col gap-4'>
+        <div className='w-full md:w-80 max-w-sm h-fit border border-slate-300 p-4 rounded-md flex flex-col gap-4'>
           <div className='flex justify-between items-center'>
             <span className='opacity-50 font-medium'>Subtotal</span>
             <strong>${cart.total ? cart.total : 0}</strong>

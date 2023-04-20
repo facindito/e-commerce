@@ -25,14 +25,14 @@ export default function Products ({ products }) {
                     ? (
                       <div className='w-full flex justify-between items-center'>
                         <button
-                          className='rounded-md bg-[#f5f7f9] border border-slate-300 hover:bg-slate-300 px-4 py-2'
+                          className='rounded-md bg-[#f5f7f9] border border-slate-300 hover:bg-black hover:text-white hover:border-black px-4 py-2'
                           onClick={() => removeToCart(product)}
                         >
                           -
                         </button>
                         <strong>{cart[id]?.quantity}</strong>
                         <button
-                          className='rounded-md bg-[#f5f7f9] border border-slate-300 hover:bg-slate-300 px-4 py-2'
+                          className='rounded-md bg-[#f5f7f9] border border-slate-300 hover:bg-black hover:text-white hover:border-black px-4 py-2'
                           onClick={() => addToCart(product)}
                         >
                           +
@@ -41,7 +41,7 @@ export default function Products ({ products }) {
                       )
                     : (
                       <button
-                        className='w-full rounded-md bg-[#f5f7f9] border border-slate-300 hover:bg-slate-300 py-2'
+                        className='w-full rounded-md bg-[#f5f7f9] border border-slate-300 hover:bg-black hover:text-white hover:border-black py-2'
                         onClick={() => addToCart(product)}
                       >
                         Add Cart

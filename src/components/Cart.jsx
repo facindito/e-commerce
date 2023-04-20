@@ -22,27 +22,27 @@ export default function CartItems () {
               .map(key => {
                 const { title, price, quantity, thumbnail } = cart[key]
                 return (
-                  <tr key={key} className='border-t flex flex-col justify-between items-center sm:table-row'>
+                  <tr key={key} className='border-t border-slate-300 flex flex-col justify-between items-center sm:table-row'>
                     <td className='px-4 py-2'>
-                      <div className='w-full sm:w-24 border border-black rounded-md overflow-hidden'>
+                      <div className='w-full sm:w-24 border border-slate-300 rounded-md overflow-hidden'>
                         <img src={thumbnail} alt={title} className='object-contain aspect-square' />
                       </div>
                     </td>
                     <td className='px-4 py-2'>{title}</td>
                     <td className='px-4 py-2'>
-                      <div className='w-fit border border-black rounded-md flex items-center'>
+                      <div className='w-fit border border-slate-300 rounded-md flex items-center overflow-hidden hover:border-black'>
                         <button
-                          className='px-4 py-1'
+                          className='px-4 py-1 flex justify-center items-center hover:text-white hover:bg-black w-1/3'
                           onClick={() => removeToCart(cart[key])}
                         >
-                          -
+                          <span className='text-center bg-red'>-</span>
                         </button>
-                        {quantity}
+                        <span className='flex-1 text-center w-1/3'>{quantity}</span>
                         <button
-                          className='px-4 py-1'
+                          className='px-4 py-1 flex justify-center items-center hover:text-white hover:bg-black w-1/3'
                           onClick={() => addToCart(cart[key])}
                         >
-                          +
+                          <span className='text-center bg-red'>+</span>
                         </button>
                       </div>
                     </td>
