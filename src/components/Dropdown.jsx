@@ -7,6 +7,7 @@ export default function Dropdown ({ categories, title, type, filters, handleChan
   const handleClick = () => {
     setDropdown((prevState) => !prevState)
   }
+
   return (
     <>
       <button

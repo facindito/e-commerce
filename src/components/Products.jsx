@@ -5,13 +5,13 @@ export default function Products ({ products }) {
 
   return (
     <main className='flex-1'>
-      <ul className='grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-4 p-4 '>
+      <ul className='grid grid-cols-[repeat(auto-fit,minmax(min(250px,100%),1fr))] gap-4'>
         {
           products.map(product => {
             const { id, title, price, thumbnail } = product
 
             return (
-              <li key={id} className='flex flex-col justify-between gap-4 max-w-xs  border border-slate-300 rounded-md p-2'>
+              <li key={id} className='w-fit flex flex-col justify-between gap-4 border border-slate-300 rounded-md p-2'>
 
                 <img src={thumbnail} alt={title} className='aspect-square object-contain rounded-md border border-slate-300' />
 

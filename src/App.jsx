@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom'
 
 export default function App () {
   return (
-    <div className='h-auto overflow-hidden'>
+    <div className='h-auto relative'>
       <CartProvider>
         <Header />
         <Outlet />
